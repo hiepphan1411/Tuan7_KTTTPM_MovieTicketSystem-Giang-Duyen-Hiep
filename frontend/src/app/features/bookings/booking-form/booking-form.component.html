@@ -1,0 +1,37 @@
+<section class="page booking-page" *ngIf="movie">
+  <div class="booking-card">
+    <div class="booking-info">
+      <span class="eyebrow">Booking</span>
+      <h1>{{ movie.title }}</h1>
+      <p>{{ movie.genre }} · {{ movie.duration }} min</p>
+      <div class="price-block">
+        <span>Ticket</span>
+        <strong>{{ movie.price | number: '1.0-0' }} VND</strong>
+      </div>
+    </div>
+
+    <form class="booking-form" (ngSubmit)="submitBooking()">
+      <label for="seats">Seats</label>
+      <input
+        id="seats"
+        type="number"
+        min="1"
+        name="seats"
+        [(ngModel)]="numberOfSeats"
+        required
+      />
+
+      <div class="summary">
+        <span>Total</span>
+        <strong>{{ totalAmount | number: '1.0-0' }} VND</strong>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Processing...' : 'Confirm booking' }}
+      </button>
+
+      <div *ngIf="success" class="alert success">{{ success }}</div>
+      <div *ngIf="error" class="alert error">{{ error }}</div>
+    </form>
+  </div>
+</section>

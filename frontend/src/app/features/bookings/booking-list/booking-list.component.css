@@ -1,0 +1,68 @@
+.booking-list {
+  display: grid;
+  gap: 16px;
+}
+
+.booking-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--wh-green-border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.08);
+  animation: riseIn 0.4s ease;
+}
+
+.booking-item h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+}
+
+.booking-item p {
+  margin: 0;
+  color: var(--wh-green-text-secondary);
+}
+
+.booking-meta {
+  display: grid;
+  gap: 8px;
+  text-align: right;
+}
+
+.status {
+  background: var(--wh-status-review);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  justify-self: end;
+}
+
+.status.failed {
+  background: var(--wh-priority-critical);
+}
+
+.price {
+  font-weight: 700;
+}
+
+.loading,
+.empty {
+  color: var(--wh-green-text-secondary);
+}
+
+@media (max-width: 700px) {
+  .booking-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .booking-meta {
+    text-align: left;
+  }
+}

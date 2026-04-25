@@ -1,0 +1,61 @@
+<section class="page auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <span class="eyebrow">Create</span>
+      <h1>New account</h1>
+      <p>Start booking movies in minutes.</p>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="onSubmit()">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        [(ngModel)]="form.username"
+        placeholder="yourname"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="form.email"
+        placeholder="you@example.com"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="form.password"
+        placeholder="********"
+        required
+      />
+
+      <button class="btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Creating...' : 'Create account' }}
+      </button>
+    </form>
+
+    <div *ngIf="success" class="alert success">{{ success }}</div>
+    <div *ngIf="error" class="alert error">{{ error }}</div>
+
+    <div class="auth-footer">
+      <span>Already have an account?</span>
+      <a routerLink="/login">Sign in</a>
+    </div>
+  </div>
+
+  <aside class="auth-panel">
+    <h2>What you get</h2>
+    <ul>
+      <li>Secure JWT access</li>
+      <li>Fast booking workflow</li>
+      <li>Realtime payment status</li>
+    </ul>
+  </aside>
+</section>
