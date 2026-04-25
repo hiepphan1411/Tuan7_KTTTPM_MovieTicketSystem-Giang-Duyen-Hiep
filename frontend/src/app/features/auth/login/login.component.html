@@ -1,0 +1,56 @@
+<section class="page auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <span class="eyebrow">Access</span>
+      <h1>Sign in</h1>
+      <p>Secure entry for ticket booking.</p>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="onSubmit()">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        [(ngModel)]="form.username"
+        placeholder="yourname"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        [(ngModel)]="form.password"
+        type="password"
+        placeholder="********"
+        required
+      />
+
+      <button class="btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Signing in...' : 'Sign in' }}
+      </button>
+    </form>
+
+    <div *ngIf="error" class="alert error">{{ error }}</div>
+
+    <div class="auth-footer">
+      <span>New here?</span>
+      <a routerLink="/register">Create an account</a>
+    </div>
+  </div>
+
+  <aside class="auth-panel">
+    <h2>Event-driven flow</h2>
+    <p>Bookings publish to Kafka, payments respond asynchronously.</p>
+    <div class="panel-stats">
+      <div>
+        <strong>BOOKING_CREATED</strong>
+        <span>sent to broker</span>
+      </div>
+      <div>
+        <strong>PAYMENT_COMPLETED</strong>
+        <span>or BOOKING_FAILED</span>
+      </div>
+    </div>
+  </aside>
+</section>

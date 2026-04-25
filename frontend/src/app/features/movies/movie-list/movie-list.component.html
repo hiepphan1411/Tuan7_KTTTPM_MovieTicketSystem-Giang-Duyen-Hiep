@@ -1,0 +1,34 @@
+<section class="page">
+  <div class="page-header">
+    <div>
+      <span class="eyebrow">Now showing</span>
+      <h1>Movie lineup</h1>
+      <p>Pick a title to start your booking.</p>
+    </div>
+    <a class="btn ghost" routerLink="/bookings">View bookings</a>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading movies...</div>
+
+  <div class="movie-grid" *ngIf="!loading">
+    <article
+      class="movie-card"
+      *ngFor="let movie of movies"
+      (click)="selectMovie(movie)"
+    >
+      <div class="movie-card__top">
+        <h3>{{ movie.title }}</h3>
+        <span class="status" [class.upcoming]="movie.status !== 'SHOWING'">
+          {{ movie.status }}
+        </span>
+      </div>
+      <p class="meta">{{ movie.genre }} · {{ movie.duration }} min</p>
+      <div class="movie-card__footer">
+        <span class="price">{{ movie.price | number: '1.0-0' }} VND</span>
+        <span class="cta">Book</span>
+      </div>
+    </article>
+  </div>
+
+  <div *ngIf="!loading && movies.length === 0" class="empty">No movies available.</div>
+</section>
