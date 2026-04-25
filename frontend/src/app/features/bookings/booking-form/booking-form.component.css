@@ -1,0 +1,67 @@
+.booking-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 30px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 40px;
+  border: 1px solid var(--wh-green-border-light);
+  box-shadow: 0 18px 45px rgba(13, 148, 136, 0.12);
+  animation: riseIn 0.6s ease;
+}
+
+.booking-info h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  margin: 8px 0 10px;
+}
+
+.booking-info p {
+  color: var(--wh-green-text-secondary);
+  margin: 0 0 30px;
+}
+
+.price-block {
+  background: var(--wh-green-bg-heavy);
+  padding: 16px 15px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.booking-form {
+  display: grid;
+  gap: 16px;
+}
+
+.booking-form label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--wh-green-text-muted);
+}
+
+.booking-form input {
+  padding: 16px 15px;
+  border-radius: 12px;
+  border: 1px solid var(--wh-green-border-medium);
+  font-size: 16px;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--wh-green-bg-medium);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .booking-card {
+    grid-template-columns: 1fr;
+  }
+}
